@@ -5,22 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
     var listA = document.querySelector('#list1');
     var listB = document.querySelector('#list2');
 
-    buttons.forEach(addEventListener('click', (e) => {
-        moveElem(e);
-    }));
-
+    buttons.forEach(addEventListener('click', function(e) {
+            moveElem( e );
+        }));
     function moveElem(e){
+        var elemClicked = e.target.parentElement;
+        var cloneElem = elemClicked.cloneNode(true);
+        var listId = elemClicked.parentElement.id;
+        elemClicked.parentElement.removeChild(elemClicked);
         
+        if(listId === 'list1'){
+            listB.appendChild(elemClicked);
+            elemClicked.style.color = 'green';
+        }else{
+            listA.appendChild(elemClicked);
+            elemClicked.style.color = 'purple';
+        }
     }
-
 });
-
-
-
-
-
-
-
 
 // window.addEventListener('DOMContentLoaded', function() {
 //     var buttons = document.querySelectorAll('.moveBtn');
@@ -32,16 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
 //             moveNode( event );
 //         });
 //     }
-
 //     function moveNode(event) {
 //         var listElem = event.target.parentElement;
 //         var clone = listElem.cloneNode(true);
 //         clone
 //             .querySelector('a')
 //             .addEventListener('click', moveNode);
-
 //         var listId = listElem.parentElement.id;
-
 //         listElem.parentElement.removeChild(listElem);
 
 //         if (listId === 'list1') {
@@ -51,3 +50,4 @@ document.addEventListener("DOMContentLoaded", function () {
 //         }
 //     }
 // })
+// });
