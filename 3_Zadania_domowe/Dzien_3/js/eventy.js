@@ -1,19 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
-console.log("DOM fully loaded and parsed!");
 
 
+    var contents = document.querySelectorAll('.content');
 
-    var allArticle = document.querySelectorAll('article a');
-    console.log(allArticle);
+    var links = document.querySelectorAll('article a');
 
-    var allPar = document.querySelectorAll('.content');
-    console.log(allPar);
-    function show() {
-        allPar.style.visibility = 'visible';
-        console.log(allPar);
-    }
-
-    });
-
-
-allArticle.addEventListener('click', show ());;
+    links.forEach((e)=>{
+        e.addEventListener('click', function (){
+            this.nextElementSibling.style.display = 'block';
+        });
+    })
