@@ -54,13 +54,32 @@
                     </p>
                 </form>
             </div>
+            <div class="text">
+                <h1 id='fireHeading' align='left'>Firebase Web App</h1>
+                <textarea id="mainText" placeholder="Enter text here ...."></textarea>
+                <button id='sendBtn' onClick='sendClick()' class='btn btn-primary'> Send</button>
+            </div>
         </div>
     </div>
 </div>
 
 </body>
 
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBP8K83t2S-uNYC5D8MLv3OGRaXmlZHj-A",
+    authDomain: "m11-magfantom.firebaseapp.com",
+    databaseURL: "https://m11-magfantom.firebaseio.com",
+    projectId: "m11-magfantom",
+    storageBucket: "m11-magfantom.appspot.com",
+    messagingSenderId: "274535035744"
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="js/pizza.js" type="text/javascript"></script>
-
-
 </html>

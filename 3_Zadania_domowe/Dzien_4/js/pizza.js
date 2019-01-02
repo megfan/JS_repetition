@@ -39,3 +39,26 @@
         sum = 0;
         price.innerHTML = sum + 'zł';
     })
+
+
+    ////adding Firebase
+
+
+ var mainText = document.getElementById('mainText');
+ var btnSend = document.getElementById('sendBtn');
+ var fireHeading = document.getElementById('fireHeading');
+ 
+ var firebaseHeadingRef = firebase.database().ref().child("Heading");
+
+ firebaseHeadingRef.on('value', function(datatsnapshot){
+     fireHeading.innerText = datatsnapshot.val();
+ });
+
+
+
+ function sendClick(){
+    var firebaseRef = firebase.database().ref();
+
+    var messageText = mainText.value;
+    firebaseRef.push().set(messageText);
+ }
